@@ -24,7 +24,7 @@ class MqttxProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('demo123', function ($app) {
+        $this->app->singleton('mqttx', function ($app) {
             return new Mqttx();
         });
     }

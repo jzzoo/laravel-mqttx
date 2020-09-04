@@ -404,7 +404,7 @@ class MqttxNear
         $head{0} = chr(0xe0);
         $head{1} = chr(0x00);
         fwrite($this->socket, $head, 2);
-        $this->__debugx('mqtt disconnect.', 'debug');
+        $this->__debugx('mqtt disconnect.', 'info');
     }
 
     /**
@@ -693,7 +693,7 @@ class MqttxNear
      * @param $text
      * @param string $level
      */
-    private function __debugx($text, $level = 'info')
+    private function __debugx($text, $level = 'info'): void
     {
         if( $this->debug === false && $level === 'debug' ) return;
         echo sprintf("%s %s: %s\t\n", date('y-m-d H:i:s'), $level, $text);
