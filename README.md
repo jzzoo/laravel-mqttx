@@ -1,4 +1,4 @@
-#laravel-mqtt
+# laravel-mqtt
 
 A simple Laravel MQTT client provides Publish/Subscribe methods.
 
