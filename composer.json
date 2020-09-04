@@ -1,6 +1,6 @@
 {
     "name": "jzzoo/laravel-mqttx",
-    "description": "mqtt client",
+    "description": "A simple PHP Laravel framework MQTT library, very convenient to use",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -20,16 +20,6 @@
     "autoload": {
         "psr-4": {
             "Jzzoo\\Laravel\\Mqttx\\": "src/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Jzzoo\\Laravel\\Mqttx\\MqttxProvider"
-            ],
-            "aliases": {
-                "Mqtt": "Jzzoo\\Laravel\\Mqttx\\Facades\\Mqttx"
-            }
         }
     }
 }

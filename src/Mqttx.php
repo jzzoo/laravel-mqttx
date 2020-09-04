@@ -4,15 +4,18 @@ namespace Jzzoo\Laravel\Mqttx;
 
 class Mqttx
 {
+    /**
+     * Mqttx constructor.
+     */
     public function __construct() {
-        $this->host      = config('mqtt.host');
-        $this->username  = config('mqtt.username');
-        $this->password  = config('mqtt.password');
-        $this->cert_file = config('mqtt.certfile');
-        $this->port      = config('mqtt.port');
-        $this->debug     = config('mqtt.debug');
-        $this->qos       = config('mqtt.qos');
-        $this->retain    = config('mqtt.retain');
+        $this->host      = config('mqttx.host');
+        $this->username  = config('mqttx.username');
+        $this->password  = config('mqttx.password');
+        $this->cert_file = config('mqttx.certfile');
+        $this->port      = config('mqttx.port');
+        $this->debug     = config('mqttx.debug');
+        $this->qos       = config('mqttx.qos');
+        $this->retain    = config('mqttx.retain');
     }
 
     /**
