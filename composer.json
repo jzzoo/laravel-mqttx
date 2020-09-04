@@ -1,0 +1,35 @@
+{
+    "name": "jzzoo/laravel-mqttx",
+    "description": "mqtt client",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jzzoo",
+            "email": "jzzoo@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "laravel/framework": ">=5.8"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Jzzoo\\Laravel\\Mqttx\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jzzoo\\Laravel\\Mqttx\\MqttxProvider"
+            ],
+            "aliases": {
+                "Mqtt": "Jzzoo\\Laravel\\Mqttx\\Facades\\Mqttx"
+            }
+        }
+    }
+}
