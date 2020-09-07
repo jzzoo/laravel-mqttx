@@ -38,7 +38,7 @@ return [
 $mqtt = new Mqttx();
 
 // Post news to test/topic topic
-$mqtt->Publish('test/topic', sprintf("mqtt message: ", mt_rand(10,9999)));
+$mqtt->Publish('test/topic', sprintf("mqtt message: %d", mt_rand(10,9999)));
    
    
 // Subscribe to test/topic topic       
@@ -48,3 +48,5 @@ $mqtt->Subscribe('test/topic', function ($topic, $message) {
 });
 
 ```
+
+If *Debug* is turned on and *Publish* is called on the browser, you can suppress the output using *ob_get_clean()*.
