@@ -49,4 +49,4 @@ $mqtt->Subscribe('test/topic', function ($topic, $message) {
 
 ```
 
-If *Debug* is turned on and *Publish* is called on the browser, you can suppress the output using *ob_get_clean()*.
+If **Debug** is turned on and **Publish** is called on the browser, you can suppress the output using **ob_get_clean()**.
