@@ -28,12 +28,28 @@ class Mqttx
      */
     public function Publish($topic, $msg, $clientId = null) {
 
-        empty($clientId) && $clientId = mt_rand(10000, 99999);
+        empty($clientId) && $clientId = $this->__genClientId();
 
         $mqtt = new MqttxNear($this->host,$this->port, $clientId, $this->cert_file, $this->debug);
 
         if ( $mqtt->connect(true, null, $this->username, $this->password) )  {
             $mqtt->publish($topic, $msg, $this->qos, $this->retain);
+
+            $cmd = $iii = 0;
+            do {
+                $byte = $mqtt->read(1, true);
+
+                if ((string)$byte === '') {
+                    usleep(100000);
+                } else {
+                    $cmd = (int)(ord($byte) / 16);
+                }
+
+                if( $cmd == 4 ) break;
+
+                $iii++;
+            } while($cmd == 0 && $iii < 3600);
+
             $mqtt->close();
             return true;
         }
@@ -51,7 +67,7 @@ class Mqttx
      */
     public function Subscribe($topic, $function, $clientId = null) {
 
-        empty($clientId) && $clientId = mt_rand(10000, 99999);
+        empty($clientId) && $clientId = $this->__genClientId();
 
         $mqtt = new MqttxNear($this->host,$this->port, $clientId);
         if( $mqtt->connect(true, null, $this->username, $this->password) ) {
@@ -67,5 +83,14 @@ class Mqttx
             return true;
         }
         return false;
+    }
+
+    /**
+     * Generate the client ID
+     *
+     * @return string
+     */
+    private function __genClientId() {
+        return uniqid('mqttx_');
     }
 }

@@ -413,7 +413,9 @@ class MqttxNear
     public function close(): void
     {
         $this->disconnect();
-        stream_socket_shutdown($this->socket, STREAM_SHUT_WR);
+        if( is_resource($this->socket) ) {
+            fclose($this->socket);
+        }
     }
 
     /**
